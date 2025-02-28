@@ -18,6 +18,7 @@ iced_fonts = { version = "0.2.0", features = [...] }
 | `iced` version | `iced_fonts` version |
 | -------------- | ---------------------|
 | 0.13.x         | 0.1.0, 0.1.1, 0.2.0  |
+| 0.14.x         | next branch          |
 
 ## Fonts
 Fonts can all be enabled with feature flags. All the fonts can be enabled with the `full` feature flag. 

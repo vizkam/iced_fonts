@@ -2,7 +2,7 @@
 name = "iced_fonts"
 description = "Include fonts via feature flags in your Iced project!"
 version = "0.2.0"
-edition = "2021"
+edition = "2024"
 license = "MIT"
 homepage = "https://iced.rs"
 repository = "https://github.com/Redhawk18/iced_fonts"
@@ -23,12 +23,12 @@ iced_core.workspace = true
 iced_widget.workspace = true
 
 [workspace.dependencies]
-iced_core = "0.13"
-iced_widget = "0.13"
+iced_core = "0.14.0-dev"
+iced_widget = "0.14.0-dev"
 
 [patch.crates-io]
-# iced_core = { git = "https://github.com/iced-rs/iced.git" }
-# iced_widget = { git = "https://github.com/iced-rs/iced.git" }
+iced_core = { git = "https://github.com/iced-rs/iced.git" }
+iced_widget = { git = "https://github.com/iced-rs/iced.git" }
 
 [package.metadata.docs.rs]
 features = ["required", "full"]
