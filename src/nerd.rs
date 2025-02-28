@@ -25943,6 +25943,10 @@ pub fn icon_to_string(icon: Nerd) -> String {
     icon_to_char(icon).to_string()
 }
 
+pub fn to_text<'a>(icon: Nerd) -> Text<'a> {
+    text(icon_to_char(icon).to_string()).font(super::NERD_FONT)
+}
+
 impl Display for Nerd {
     fn fmt(&self, f: &mut Formatter<'_>) -> Result {
         write!(f, "{}", icon_to_char(*self))

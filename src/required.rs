@@ -1,6 +1,8 @@
 //! Bootstrap Required Icons.
 //! Machine generated code. Do not change!
 
+use iced_widget::{text, Text};
+
 /// Bootstrap RequiredIcons
 #[derive(Copy, Clone, Debug, Hash)]
 pub enum RequiredIcons {
@@ -35,6 +37,10 @@ pub const fn icon_to_char(icon: RequiredIcons) -> char {
 #[must_use]
 pub fn icon_to_string(icon: RequiredIcons) -> String {
     icon_to_char(icon).to_string()
+}
+
+pub fn to_text<'a>(icon: RequiredIcons) -> Text<'a> {
+    text(icon_to_char(icon).to_string()).font(super::REQUIRED_FONT)
 }
 
 impl From<RequiredIcons> for char {

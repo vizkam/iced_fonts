@@ -6167,6 +6167,10 @@ pub fn icon_to_string(icon: Bootstrap) -> String {
     icon_to_char(icon).to_string()
 }
 
+pub fn to_text<'a>(icon: Bootstrap) -> Text<'a> {
+    text(icon_to_char(icon).to_string()).font(super::BOOTSTRAP_FONT)
+}
+
 impl Display for Bootstrap {
     fn fmt(&self, f: &mut Formatter<'_>) -> Result {
         write!(f, "{}", icon_to_char(*self))
