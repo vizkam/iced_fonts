@@ -25943,6 +25943,7 @@ pub fn icon_to_string(icon: Nerd) -> String {
     icon_to_char(icon).to_string()
 }
 
+use iced_widget::{Text, text};
 pub fn to_text<'a>(icon: Nerd) -> Text<'a> {
     text(icon_to_char(icon).to_string()).font(super::NERD_FONT)
 }

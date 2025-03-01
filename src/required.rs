@@ -1,7 +1,7 @@
 //! Bootstrap Required Icons.
 //! Machine generated code. Do not change!
 
-use iced_widget::{text, Text};
+use iced_widget::{Text, text};
 
 /// Bootstrap RequiredIcons
 #[derive(Copy, Clone, Debug, Hash)]
