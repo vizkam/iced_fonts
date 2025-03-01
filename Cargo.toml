@@ -18,17 +18,15 @@ bootstrap = []
 nerd = []
 full = ["bootstrap", "nerd"]
 
-[dependencies]
-iced_core.workspace = true
-iced_widget.workspace = true
+[dependencies.iced_core]
+version = "0.14.0-dev"
+git = "https://github.com/iced-rs/iced.git"
+rev = "beddf49c76f3b43e7b33452831e1293cad28fd89"
 
-[workspace.dependencies]
-iced_core = "0.14.0-dev"
-iced_widget = "0.14.0-dev"
-
-[patch.crates-io]
-iced_core = { git = "https://github.com/iced-rs/iced.git" }
-iced_widget = { git = "https://github.com/iced-rs/iced.git" }
+[dependencies.iced_widget]
+version = "0.14.0-dev"
+git = "https://github.com/iced-rs/iced.git"
+rev = "beddf49c76f3b43e7b33452831e1293cad28fd89"
 
 [package.metadata.docs.rs]
 features = ["required", "full"]

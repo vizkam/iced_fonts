@@ -1,6 +1,8 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:NixOS/nixpkgs/unstable";
+    # https://nixpk.gs/pr-tracker.html?pr=383902
+    nixpkgs.url = "github:NixOS/nixpkgs/staging";
     devenv.url = "github:cachix/devenv";
   };
 
@@ -11,9 +13,10 @@
       systems = nixpkgs.lib.systems.flakeExposed;
 
       perSystem =
-        { lib
-        , pkgs
-        , ...
+        {
+          lib,
+          pkgs,
+          ...
         }:
         {
           # Per-system attributes can be defined here. The self' and inputs'
@@ -24,6 +27,7 @@
             dotenv.disableHint = true;
 
             languages.rust.enable = true;
+            languages.rust.mold.enable = false;
             # packages = with pkgs; [ ];
 
             env = {
