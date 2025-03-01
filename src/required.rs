@@ -1,7 +1,7 @@
 //! Bootstrap Required Icons.
 //! Machine generated code. Do not change!
 
-use iced_widget::{text, Text};
+use iced_widget::{Text, text};
 
 /// Bootstrap RequiredIcons
 #[derive(Copy, Clone, Debug, Hash)]
@@ -39,7 +39,7 @@ pub fn icon_to_string(icon: RequiredIcons) -> String {
     icon_to_char(icon).to_string()
 }
 
-pub fn to_text<'a>(icon: RequiredIcons) -> Text<'a> {
+pub fn to_text(icon: RequiredIcons) -> Text<'static> {
     text(icon_to_char(icon).to_string()).font(super::REQUIRED_FONT)
 }
 
