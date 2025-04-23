@@ -1,6 +1,17 @@
 [package]
 name = "iced_fonts"
 description = "Include fonts via feature flags in your Iced project!"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories.workspace = true
+readme.workspace = true
+authors.workspace = true
+
+[workspace.package]
 version = "0.2.0"
 edition = "2024"
 license = "MIT"
@@ -12,21 +23,89 @@ readme = "README.md"
 authors = [ "Redhawk18" ]
 
 [features]
-default = ["required"]
-required = []
+default = []
 bootstrap = []
+codicon = []
+devicon = []
+fontawesome = []
+lucide = []
+material = []
 nerd = []
-full = ["bootstrap", "nerd"]
+octicons = []
+pomicons = []
+full = [
+    "bootstrap",
+    "codicon",
+    "devicon",
+    "fontawesome",
+    "lucide",
+    "material",
+    "nerd",
+    "octicons",
+    "pomicons",
+]
+
+[workspace]
+members = ["macros"]
+
+[dev-dependencies]
+iced = "0.14.0-dev"
 
 [dependencies]
-iced_core = "0.14.0-dev"
-iced_widget = "0.14.0-dev"
+iced_fonts_macros = {path = "macros"}
+
+iced_core.workspace = true
+iced_widget.workspace = true
+
+[workspace.dependencies]
+iced_core = "0.14.0-dev" # Iced core has the text widget, which is the only one we need.
+iced_widget = "0.14.0-dev" # TODO 
+proc-macro2 = "1"
+quote = "1"
+syn = "2"
+ttf-parser = "0.25"
 
 
 [patch.crates-io]
+iced = { git = "https://github.com/iced-rs/iced.git", rev = "beddf49c" }
 iced_core = { git = "https://github.com/iced-rs/iced.git", rev = "beddf49c" }
 iced_widget = { git = "https://github.com/iced-rs/iced.git", rev = "beddf49c" }
 
 [package.metadata.docs.rs]
-features = ["required", "full"]
+features = ["full"]
 rustdoc-args = ["--document-private-items"]
+
+[[example]]
+name = "bootstrap"
+required-features = ["bootstrap"]
+
+[[example]]
+name = "codicon"
+required-features = ["codicon"]
+
+[[example]]
+name = "custom"
+
+[[example]]
+name = "devicon"
+required-features = ["devicon"]
+
+[[example]]
+name = "fontawesome"
+required-features = ["fontawesome"]
+
+[[example]]
+name = "lucide"
+required-features = ["lucide"]
+
+[[example]]
+name = "nerd"
+required-features = ["nerd"]
+
+[[example]]
+name = "octicons"
+required-features = ["octicons"]
+
+[[example]]
+name = "pomicons"
+required-features = ["pomicons"]
