@@ -176,10 +176,10 @@ pub fn generate_icon_functions(input: TokenStream) -> TokenStream {
 
             let shaping = match advanced_shaping.value().as_str() {
                 "basic" => {
-                    quote! { shaping(iced_core::widget::text::Shaping::Basic) }
+                    quote! { shaping(text::Shaping::Basic) }
                 }
                 "advanced" => {
-                    quote! { shaping(iced_core::widget::text::Shaping::Advanced) }
+                    quote! { shaping(text::Shaping::Advanced) }
                 }
                 _ => panic!(
                     "Shaping either needs to be basic or advanced, if you are unsure use advanced."
@@ -189,7 +189,7 @@ pub fn generate_icon_functions(input: TokenStream) -> TokenStream {
             functions.extend(quote! {
                 #[doc = #doc]
                 #[must_use]
-                pub fn #fn_name<'a>() -> iced_widget::text::Text<'a> {
+                pub fn #fn_name<'a, Theme: Catalog + 'a, Renderer: text::Renderer<Font = Font>>() -> Text<'a, Theme, Renderer> {
                     iced_widget::text(#c).font(#font_name).#shaping
                 }
             });
@@ -204,8 +204,10 @@ pub fn generate_icon_functions(input: TokenStream) -> TokenStream {
     let count_lit = LitInt::new(&count.to_string(), Span::call_site());
     TokenStream::from(quote! {
         pub mod #module_name {
-
-            use iced_widget::text::{Text};
+            use iced_widget::core::text;
+            use iced_widget::core::Font;
+            use iced_widget::text::Text;
+            use iced_widget::text::Catalog;
             use crate::#font_name;
 
             /// The amount of icons in the font.
