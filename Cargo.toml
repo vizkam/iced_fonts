@@ -58,18 +58,17 @@ iced_core.workspace = true
 iced_widget.workspace = true
 
 [workspace.dependencies]
-iced_core = "0.14.0-dev" # Iced core has the text widget, which is the only one we need.
-iced_widget = "0.14.0-dev" # TODO 
+iced_core = {git = "https://github.com/iced-rs/iced.git", rev = "89f480bdae951a31944302777b759661ec3c3e83"}
+iced_widget= {git = "https://github.com/iced-rs/iced.git", rev = "89f480bdae951a31944302777b759661ec3c3e83"}
 proc-macro2 = "1"
 quote = "1"
 syn = "2"
 ttf-parser = "0.25"
 
-
 [patch.crates-io]
-iced = { git = "https://github.com/iced-rs/iced.git", rev = "beddf49c" }
-iced_core = { git = "https://github.com/iced-rs/iced.git", rev = "beddf49c" }
-iced_widget = { git = "https://github.com/iced-rs/iced.git", rev = "beddf49c" }
+iced = {git = "https://github.com/iced-rs/iced.git", rev = "89f480bdae951a31944302777b759661ec3c3e83"}
+iced_core = {git = "https://github.com/iced-rs/iced.git", rev = "89f480bdae951a31944302777b759661ec3c3e83"}
+iced_widget= {git = "https://github.com/iced-rs/iced.git", rev = "89f480bdae951a31944302777b759661ec3c3e83"}
 
 [package.metadata.docs.rs]
 features = ["full"]
