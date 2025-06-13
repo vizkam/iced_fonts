@@ -23,8 +23,8 @@ iced_core.workspace = true
 iced_widget.workspace = true
 
 [workspace.dependencies]
-iced_core = "0.13"
-iced_widget = "0.13"
+iced_core = { git = "https://github.com/vizkam/iced.git", branch = "13.1-patch"}
+iced_widget = { git = "https://github.com/vizkam/iced.git", branch = "13.1-patch"}
 
 [patch.crates-io]
 # iced_core = { git = "https://github.com/iced-rs/iced.git" }
